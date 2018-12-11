@@ -115,7 +115,7 @@ module.exports = function() {
 
     var sendEvent = function (event_name, event_data) {
         if (isJoinEvent(event_name) || isConnected()) {
-            //console.log("sending", JSON.stringify([event_name, event_data || {}]));
+            console.log("sending", JSON.stringify([event_name, event_data || {}]));
             sock.send(JSON.stringify([event_name, event_data || {}]));
         }
         else {
@@ -271,6 +271,9 @@ module.exports = function() {
             };
             sock.onclose = function (e) {
                 if (call.getState() === 'connected') {
+                    console.log('-------------CLOSED UNEXPECTEDLY--------');
+                    console.log('------------OH NO FUCKITY FUCK----------');
+                    console.log('------------------------------------');
                     call.closedUnexpectedly();
                 }
             };

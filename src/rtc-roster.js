@@ -44,7 +44,6 @@ module.exports = function(esc) {
 
   var close = function(){
     esc.roster.collection.unbind("");
-    esc.close();
   };
 
 
